@@ -1,0 +1,9 @@
+---
+import MainLayout from "@layouts/mainLayout.astro";
+import Counter from "@components/Counter";
+---
+
+<MainLayout title="Polygon Admin CMS | Home">
+   <h1 class="text-3xl">Astro</h1> 
+   <Counter client:only />
+</MainLayout>
