@@ -18,13 +18,16 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "react-hooks"
     ],
     "rules": {
         "indent": ["error", 4],
         "semi": ["error", "always"],
         "jsx-quotes": ["error", "prefer-double"],
         "eol-last": ["error", "always"],
-        "@typescript-eslint/consistent-type-imports": "warn"
+        "@typescript-eslint/consistent-type-imports": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }

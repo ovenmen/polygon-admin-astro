@@ -3,6 +3,7 @@
     "compilerOptions": {
         "jsx": "react-jsx",
         "jsxImportSource": "react",
+        "useDefineForClassFields": true,
         "baseUrl": ".",
         "paths": {
             "@components/*": ["src/components/*"],

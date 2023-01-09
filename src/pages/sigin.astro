@@ -1,8 +1,14 @@
 ---
-import MainLayout from "@layouts/mainLayout.astro";
+import Sigin from "@components/Sigin";
+import SiginLayout from "@layouts/siginLayout.astro";
 
+const accessToken = Astro.cookies.get('accessToken').value
+
+if (accessToken) {
+    return Astro.redirect('/')
+}
 ---
 
-<MainLayout title="Polygon Admin CMS | Sigin">
-    <h1 class="text-3xl">Sigin</h1> 
- </MainLayout>
+<SiginLayout title="Polygon Admin CMS | Sigin">
+    <Sigin client:load />
+</SiginLayout>

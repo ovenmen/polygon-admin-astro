@@ -1,9 +1,13 @@
 ---
 import MainLayout from "@layouts/mainLayout.astro";
-import Counter from "@components/Counter";
+
+const accessToken = Astro.cookies.get('accessToken').value
+
+if (!accessToken) {
+   return Astro.redirect('/sigin')
+}
 ---
 
 <MainLayout title="Polygon Admin CMS | Home">
-   <h1 class="text-3xl">Astro</h1> 
-   <Counter client:only />
+   <h1 class="text-3xl">Astro</h1>
 </MainLayout>
