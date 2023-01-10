@@ -1,5 +1,14 @@
 ---
+import jwt from 'jsonwebtoken';
+import env from 'dotenv';
+import Navbar from "@components/Navbar";
+
+env.config({ path: '.env' });
+
 const { title } = Astro.props
+const accessToken = Astro.cookies.get('accessToken').value
+
+const user = jwt.verify(accessToken, process.env.SECRET);
 ---
 
 <!DOCTYPE html>
@@ -12,13 +21,7 @@ const { title } = Astro.props
 </head>
 <body>
     <header>
-        <nav slot="navigation">
-            <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="/sigin">sigin</a></li>
-                <li><a href="/logout">logout</a></li>
-            </ul>
-        </nav>
+        <Navbar { ...user } />
     </header>
     <main>
         <slot />
