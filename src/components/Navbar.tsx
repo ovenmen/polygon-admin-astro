@@ -4,24 +4,25 @@ import React from 'react';
 interface INavbar {
     login: string
     name: string
-    avatar: string
+    avatar: string,
+    pathname: string
 }
 
 const Navbar: FC<INavbar> = ({
     name,
-    avatar
+    avatar,
+    pathname
 }) => {
-
     return (
         <nav className="bg-sky-700">
             <ul className="flex">
-                <li className="py-3 px-4 bg-sky-600 hover:bg-sky-500 active:bg-sky-500">
+                <li className={`py-3 px-4 ${pathname === '/admin' && 'bg-sky-600'} hover:bg-sky-600`}>
                     <a href="/admin" className="text-white block">Dashboard</a>
                 </li>
-                <li className="py-3 px-4 hover:bg-sky-600">
+                <li className={`py-3 px-4 ${pathname === '/admin/articles' && 'bg-sky-600'} hover:bg-sky-600`}>
                     <a href="/admin/articles" className="text-white block">Articles</a>
                 </li>
-                <li className="py-3 px-4 hover:bg-sky-600">
+                <li className={`py-3 px-4 ${pathname === '/admin/users' && 'bg-sky-600'} hover:bg-sky-600`}>
                     <a href="/admin/users" className="text-white block">Users</a>
                 </li>
                 <li className="relative py-3 px-4 flex ml-auto group/item">
@@ -29,10 +30,10 @@ const Navbar: FC<INavbar> = ({
                     <button className="text-white">
                         {name}
                         <ul className="absolute left-0 top-[52px] w-[100%] bg-sky-700 text-left hidden group/edit group-hover/item:block">
-                            <li className="py-3 px-4 hover:bg-sky-600">
+                            <li className={`py-3 px-4 ${pathname === '/admin/profile' && 'bg-sky-600'} hover:bg-sky-600`}>
                                 <a href="/admin/profile" className="text-white block">Profile</a>
                             </li>
-                            <li className="py-3 px-4 hover:bg-sky-600">
+                            <li className={`py-3 px-4 ${pathname === '/admin/logout' && 'bg-sky-600'} hover:bg-sky-600`}>
                                 <a href="/admin/logout" className="text-white block">Logout</a>
                             </li>
                         </ul>

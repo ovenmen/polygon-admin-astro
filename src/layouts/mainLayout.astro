@@ -6,6 +6,7 @@ import Navbar from "@components/Navbar";
 env.config({ path: '.env' });
 
 const { title } = Astro.props
+const { pathname } = Astro.url
 const accessToken = Astro.cookies.get('accessToken').value
 
 const user = jwt.verify(accessToken, process.env.SECRET);
@@ -21,7 +22,7 @@ const user = jwt.verify(accessToken, process.env.SECRET);
 </head>
 <body>
     <header>
-        <Navbar { ...user } />
+        <Navbar { ...user } pathname={pathname} />
     </header>
     <main>
         <slot />
