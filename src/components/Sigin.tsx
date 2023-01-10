@@ -34,7 +34,7 @@ const Sigin: FC = () => {
     const onSubmit: SubmitHandler<Inputs> = async ({ login, password }) => {
         const data = await fetcher.post('http://localhost:5000/api/users/sigin', { login, password });
         cookie.set('accessToken', data.token);
-        window.location.replace('/');
+        window.location.replace('/admin');
     };
 
     return (

@@ -5,7 +5,7 @@ import SiginLayout from "@layouts/siginLayout.astro";
 const accessToken = Astro.cookies.get('accessToken').value
 
 if (accessToken) {
-    return Astro.redirect('/')
+    return Astro.redirect('/admin')
 }
 ---
 
